@@ -5,7 +5,6 @@ import * as yup from "yup"
 import Navbar from "../components/Navbar"
 import FormField from "../components/FormField"
 import Button from "../components/Button"
-import axios from "axios"
 
 const initialValues = {
   amount: "",
@@ -20,16 +19,6 @@ const AddEntry = () => {
     console.log(e.target.value)
     setEntry({ ...entry, [e.target.name]: e.target.value })
     console.log(entry)
-  }
-
-  const url = "http://localhost:3000"
-
-  const addEntry = async (entry) => {
-    return await axios.post(url, entry)
-  }
-
-  const addEntryDetails = async () => {
-    await addEntry(entry)
   }
 
   const handleFormSubmit = useCallback(
@@ -81,11 +70,7 @@ const AddEntry = () => {
                   >
                     Description
                   </FormField>
-                  <Button
-                    type="submit"
-                    onClick={() => addEntryDetails()}
-                    disabled={!isValid || isSubmitting}
-                  >
+                  <Button type="submit" disabled={!isValid || isSubmitting}>
                     Submit
                   </Button>
                 </form>

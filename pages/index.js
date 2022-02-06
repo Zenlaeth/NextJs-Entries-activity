@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Table from "../components/Table"
 import Navbar from "../components/Navbar"
+import AddEntry from "./form"
 
 export default function Home() {
   const initialState = {
